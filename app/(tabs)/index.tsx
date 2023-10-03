@@ -5,6 +5,7 @@ import HomeCard from "../../components/HomeCard";
 import { useRouter, useFocusEffect } from "expo-router";
 import Colors from "../../constants/Colors";
 import { useState } from "react";
+import FAB from "../../components/FAB";
 
 function Home() {
   const WIDTH = Dimensions.get("window").width;
