@@ -58,6 +58,14 @@ function RootLayoutNav() {
           name="modal"
           options={{ presentation: "card", headerShown: true }}
         />
+        <Stack.Screen
+          name="sheetTemp"
+          options={{
+            presentation: "card",
+            headerShown: true,
+            headerShadowVisible: false,
+          }}
+        />
       </Stack>
     </ThemeProvider>
   );

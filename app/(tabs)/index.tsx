@@ -6,6 +6,7 @@ import { useRouter, useFocusEffect } from "expo-router";
 import Colors from "../../constants/Colors";
 import { useState } from "react";
 import FAB from "../../components/FAB";
+import PopUpModal from "../../components/popupModal";
 
 function Home() {
   const WIDTH = Dimensions.get("window").width;
@@ -44,34 +45,12 @@ function Home() {
         contentContainerStyle={{ width: WIDTH }}
         bounces
       />
-
-      <Modal
-        visible={modeVisible}
+      <PopUpModal
+        modeVisible={modeVisible}
         onDismiss={() => {
           setModeVisible(false);
         }}
-        contentContainerStyle={{
-          backgroundColor: "white",
-          padding: 20,
-          aspectRatio: 16 / 9,
-          width: "80%",
-          alignSelf: "center",
-          borderRadius: 20,
-        }}
-      >
-        <Text variant="titleSmall" style={{ marginVertical: 10 }}>
-          how would you name this project ?
-        </Text>
-        <TextInput placeholder="project name" mode="flat" />
-        <Button
-          mode="elevated"
-          textColor="black"
-          buttonColor={Colors.ctrColor2}
-          style={{ width: "60%", alignSelf: "center", margin: 10 }}
-        >
-          Done
-        </Button>
-      </Modal>
+      />
     </>
   );
 }
