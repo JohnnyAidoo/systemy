@@ -31,6 +31,7 @@ function PopUpModal(props: { modeVisible: boolean; onDismiss: () => void }) {
       <Button
         onPress={() => {
           router.push("/sheetTemp");
+          props.onDismiss();
         }}
         mode="elevated"
         textColor={Colors.light.background}

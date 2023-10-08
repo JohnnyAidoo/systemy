@@ -3,24 +3,24 @@ import { View, FlatList, Dimensions } from "react-native";
 import { Text, Surface, Button, Modal, TextInput } from "react-native-paper";
 import HomeCard from "../../components/HomeCard";
 import { useRouter, useFocusEffect } from "expo-router";
-import Colors from "../../constants/Colors";
 import { useState } from "react";
-import FAB from "../../components/FAB";
 import PopUpModal from "../../components/popupModal";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function Home() {
   const WIDTH = Dimensions.get("window").width;
   const router = useRouter();
-  const isFirstTime: boolean = true;
 
+  const [isSignedIn, setIsSignedin] = useState<boolean>(false);
   const [modeVisible, setModeVisible] = useState<boolean>(false);
 
   useFocusEffect(() => {
-    const checkIfFirstTime = (checker: boolean) => {
-      checker ? router.replace("/introScreen") : null;
+    const checkIfSignedIn = async () => {
+      let userId = await AsyncStorage.getItem("userId");
+      !userId ? router.replace("/introScreen") : null;
     };
 
-    checkIfFirstTime(isFirstTime);
+    checkIfSignedIn();
   });
 
   return (

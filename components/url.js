@@ -1,3 +1,3 @@
-const URL = "http://localhost:3001/users";
+const URL = "http://192.168.0.9:3001";
 
 export default URL;
