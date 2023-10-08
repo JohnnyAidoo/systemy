@@ -11,7 +11,7 @@ import PopUpModal from "../../components/popupModal";
 function Home() {
   const WIDTH = Dimensions.get("window").width;
   const router = useRouter();
-  const isFirstTime: boolean = false;
+  const isFirstTime: boolean = true;
 
   const [modeVisible, setModeVisible] = useState<boolean>(false);
 

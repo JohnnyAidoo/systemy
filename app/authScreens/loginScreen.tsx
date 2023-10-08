@@ -5,8 +5,11 @@ import Colors from "../../constants/Colors";
 import { useState } from "react";
 import { router } from "expo-router";
 import GoogleSignIn from "../../components/googleSignInButton";
+
 function LoginScreen() {
   const [showPassword, setShowPasword] = useState<boolean>(false);
+
+  const handleSignIn = () => {};
 
   return (
     <View
@@ -48,6 +51,7 @@ function LoginScreen() {
         />
 
         <Button
+          onPress={handleSignIn}
           mode="elevated"
           buttonColor={Colors.ctrColor1}
           textColor={Colors.light.background}
