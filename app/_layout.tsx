@@ -5,6 +5,7 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
+import { Jost_500Medium } from "@expo-google-fonts/jost";
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
@@ -24,7 +25,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    Jost_500Medium,
     ...FontAwesome.font,
   });
 
@@ -55,7 +56,7 @@ function RootLayoutNav() {
         <Stack.Screen name="(tabs)" options={{}} />
 
         <Stack.Screen
-          name="modal"
+          name="profile"
           options={{ presentation: "card", headerShown: true }}
         />
         <Stack.Screen

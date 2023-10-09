@@ -15,8 +15,10 @@ function LoginScreen() {
     message: "",
     btnLoading: false,
   });
-  const [email, setEmail] = useState<String>();
-  const [password, setPassword] = useState<String>();
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
 
   const handleSignIn = () => {
     setShowDialog({
@@ -27,8 +29,8 @@ function LoginScreen() {
 
     axios
       .post(`${URL}/users/signin`, {
-        email: email,
-        password: password,
+        email: credentials.email,
+        password: credentials.password,
       })
       .then(async (res) => {
         //@ts-ignore
@@ -67,7 +69,7 @@ function LoginScreen() {
           <TextInput
             textContentType="emailAddress"
             onChangeText={(text) => {
-              setEmail(text);
+              setCredentials({ email: text, password: credentials.password });
             }}
             mode="outlined"
             placeholder="email"
@@ -81,7 +83,7 @@ function LoginScreen() {
           <TextInput
             textContentType="password"
             onChangeText={(text) => {
-              setPassword(text);
+              setCredentials({ email: credentials.email, password: text });
             }}
             mode="outlined"
             placeholder="password"
